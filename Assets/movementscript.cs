@@ -10,18 +10,19 @@ public class movementscript : MonoBehaviour
     private float cur_height;
     GameObject[] gos;
     public Camera cam;
-    int startno=0;
+    int startno=309;
     bool pause=false;
     Rigidbody rb ;
     Vector3 vel ;
-
+    int img_mul=12;             // change to change the size the images getting genereated 
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         vel = rb.velocity;
-        Random.seed=startno;
+        // Random.seed=startno;
+        Random.InitState(startno);
         //transform.position = new Vector3(24.3999996f,26.1800003f,-25f);
         cur_height=transform.position.y;
         // cam = GetComponent<Camera>();
@@ -79,7 +80,7 @@ public class movementscript : MonoBehaviour
 
                 Time.timeScale = 0;
                 pause=true;
-                ScreenCapture.CaptureScreenshot("/media/aafaq/work_drive/synthetic_guns_dataset/gun"+startno+"a.png",8);
+                ScreenCapture.CaptureScreenshot("/media/aafaq/work_drive/synthetic_guns_dataset/gun"+startno+"a.png",img_mul);
 
                 
             }
@@ -94,7 +95,7 @@ public class movementscript : MonoBehaviour
                 pause=true;
                 Time.timeScale=0;
                  
-                ScreenCapture.CaptureScreenshot("/media/aafaq/work_drive/synthetic_guns_dataset/gun"+startno+"a.png",8);
+                ScreenCapture.CaptureScreenshot("/media/aafaq/work_drive/synthetic_guns_dataset/gun"+startno+"a.png",img_mul);
 
                 
                 
@@ -106,7 +107,7 @@ public class movementscript : MonoBehaviour
             
           
 
-            ScreenCapture.CaptureScreenshot("/media/aafaq/work_drive/synthetic_guns_dataset/gun"+startno+"b.png",8);
+            ScreenCapture.CaptureScreenshot("/media/aafaq/work_drive/synthetic_guns_dataset/gun"+startno+"b.png",img_mul);
               startno++;
             //lets go back to the sky and jump again 
             // controller.transform.position.y=33.1f;
